@@ -8,6 +8,9 @@ function reareangeArray(array) {
   return [...array].sort(() => Math.random() - 0.5);
 }
 
+const TIME_QUESTION = 4000 ;
+const TIMER_PROGRESS = 1000 ;
+
 export default function Quiz() {
   const [answers, setAnswers] = useState([]);
   const [cssClasses, setCssClasses] = useState("");
@@ -56,7 +59,7 @@ export default function Quiz() {
   return (
     <>
       <Progress
-        timeOut={cssClasses != "" ? 1000 : 4000}
+        timeOut={cssClasses != "" ? TIMER_PROGRESS : TIME_QUESTION}
         progressState={cssClasses}
         skipQuestion={skipQuestion}
         key={`${currentIndex}-${cssClasses}`}
